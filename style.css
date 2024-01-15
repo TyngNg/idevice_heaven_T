@@ -1,0 +1,1465 @@
+/* global */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.section-p1 {
+    padding: 40px 80px;
+}
+
+.section-m1 {
+    margin: 40px 0;
+}
+
+h1 {
+    font-size: 45px;
+}
+
+h2 {
+    font-size: 35px;
+}
+
+p {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+button.normal {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 30px;
+    color: black;
+    background-color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+}
+
+/* root */
+:root {
+    --glow-color: hsl(186 100% 69%);
+}
+
+/* index.html */
+/* header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    margin: 0 0 2px 0;
+    background: #9cffdb;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    position: sticky;
+    left: 0;
+    top: 0;
+}
+
+#navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#navbar li {
+    list-style-type: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+    transition: 0.3s ease;
+}
+
+#navbar li a:hover,
+#navbar li a:focus,
+#navbar li a.active {
+    color: #1496d7;
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+    content: "";
+    width: 24px;
+    height: 2px;
+    background-color: #1496d7;
+    position: absolute;
+    left: 21px;
+    bottom: -4px;
+}
+
+.header .mobile,
+#close {
+    display: none;
+}
+
+/* Hero */
+.hero {
+    height: 90vh;
+    width: 100%;
+    background: url('img/hero.png') center no-repeat;
+    background-size: cover;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+.hero *:not(button) {
+    width: 60%;
+}
+
+.hero h2 {
+    color: #ffffff;
+}
+
+.hero p {
+    color: rgb(213, 252, 255);
+}
+
+.glowing-btn {
+    position: relative;
+    color: var(--glow-color);
+    cursor: pointer;
+    margin: 2rem 0;
+    padding: 0.35em 1em;
+    border: 0.15em solid var(--glow-color);
+    border-radius: 0.45em;
+    background: none;
+    perspective: 2em;
+    font-family: "Raleway", sans-serif;
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: 1em;
+
+    -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+        0px 0px 0.5em 0px var(--glow-color);
+    -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+        0px 0px 0.5em 0px var(--glow-color);
+    box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+        0px 0px 0.5em 0px var(--glow-color);
+    animation: border-flicker 2s linear infinite;
+}
+
+.glowing-txt {
+    float: left;
+    margin-right: -0.8em;
+    -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+        0 0 0.45em var(--glow-color);
+    -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+        0 0 0.45em var(--glow-color);
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
+    animation: text-flicker 3s linear infinite;
+}
+
+.faulty-letter {
+    opacity: 0.5;
+    animation: faulty-flicker 2s linear infinite;
+}
+
+.glowing-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.7;
+    filter: blur(1em);
+    transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
+    background: var(--glow-color);
+    pointer-events: none;
+}
+
+.glowing-btn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: -1;
+    background-color: var(--glow-color);
+    box-shadow: 0 0 2em 0.2em var(--glow-color);
+    transition: opacity 100ms linear;
+}
+
+.glowing-btn:hover {
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: none;
+    animation: none;
+}
+
+.glowing-btn:hover .glowing-txt {
+    animation: none;
+}
+
+.glowing-btn:hover .faulty-letter {
+    animation: none;
+    text-shadow: none;
+    opacity: 1;
+}
+
+.glowing-btn:hover:before {
+    filter: blur(1.5em);
+    opacity: 1;
+}
+
+.glowing-btn:hover:after {
+    opacity: 1;
+}
+
+@keyframes faulty-flicker {
+    0% {
+        opacity: 0.1;
+    }
+
+    2% {
+        opacity: 0.1;
+    }
+
+    4% {
+        opacity: 0.5;
+    }
+
+    19% {
+        opacity: 0.5;
+    }
+
+    21% {
+        opacity: 0.1;
+    }
+
+    23% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0.5;
+    }
+
+    83% {
+        opacity: 0.4;
+    }
+
+    87% {
+        opacity: 1;
+    }
+}
+
+@keyframes text-flicker {
+    0% {
+        opacity: 0.1;
+    }
+
+    2% {
+        opacity: 1;
+    }
+
+    8% {
+        opacity: 0.1;
+    }
+
+    9% {
+        opacity: 1;
+    }
+
+    12% {
+        opacity: 0.1;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 0.3;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 0.7;
+    }
+
+    72% {
+        opacity: 0.2;
+    }
+
+    77% {
+        opacity: 0.9;
+    }
+
+    100% {
+        opacity: 0.9;
+    }
+}
+
+@keyframes border-flicker {
+    0% {
+        opacity: 0.1;
+    }
+
+    2% {
+        opacity: 1;
+    }
+
+    4% {
+        opacity: 0.1;
+    }
+
+    8% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Features */
+.feature {
+    padding: 40px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.feature .fe-box {
+    width: 180px;
+    text-align: center;
+    padding: 25px 15px;
+    box-shadow: 20px 20px 54px rgba(0, 0, 0, 0.05);
+    border: 1px solid gray;
+}
+
+.feature .fe-box img {
+    width: 100%;
+    height: 90px;
+}
+
+.feature .fe-box:hover {
+    box-shadow: 10px 10px 34px rgba(0, 0, 0, 0.15);
+}
+
+.feature .fe-box h6 {
+    font-size: 16px;
+    color: black;
+}
+
+.feature .fe-box:nth-child(odd) h6 {
+    margin-top: 10px;
+    padding: 10px;
+    line-height: 1;
+    border-radius: 4px;
+    background-color: rgb(205, 255, 210);
+}
+
+.feature .fe-box:nth-child(even) h6 {
+    margin-top: 10px;
+    padding: 10px;
+    line-height: 1;
+    border-radius: 4px;
+    background-color: rgb(208, 255, 255);
+}
+
+/* Featured Products */
+.product {
+    padding: 40px 80px;
+    text-align: center;
+}
+
+.product .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 20px;
+    flex-wrap: wrap;
+}
+
+.product .pro {
+    width: 23%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 15px;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    margin: 15px 0;
+    transition: 0.2s ease;
+    position: relative;
+}
+
+.product .pro a {
+    text-decoration: none;
+}
+
+.product .pro:hover {
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.05);
+}
+
+.product .pro img {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.product .pro .des {
+    text-align: start;
+    padding: 10px 0;
+}
+
+.product .pro .des span {
+    color: #606063;
+    font-size: 12px;
+}
+
+.product .pro .des h5 {
+    padding-top: 7px;
+    color: #1a1a1a;
+    font-size: 14px;
+}
+
+.product .pro .des i {
+    font-size: 12px;
+    color: rgb(255, 217, 0);
+}
+
+.product .pro .des h4 {
+    color: #3E9C35;
+}
+
+.product .pro .cart {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50px;
+    background-color: #e8f6ea;
+    color: #3E9C35;
+    border: 1px solid #cce7d0;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+}
+
+/* Banner */
+.banner {
+    display: flex;
+    padding: 40px 80px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://source.unsplash.com/1600x900/?black banner");
+    color: white;
+    background-size: cover;
+    width: 100%;
+    height: 50vh;
+    margin: 20px 0;
+}
+
+.banner h4 {
+    font-size: 16px;
+}
+
+.banner h2 {
+    font-size: 32px;
+    padding: 10px 0;
+}
+
+.banner h2 span {
+    color: rgb(255, 105, 105);
+}
+
+.banner button:hover,
+.banner button:focus {
+    background: #9cffdb;
+    outline: 2px solid white;
+}
+
+/* New */
+.product .pro.new::before {
+    content: "";
+    background: url("img/new.png") no-repeat;
+    background-size: 100px;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Small-Banner */
+.sm-banner {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.sm-banner .banner-box {
+    margin: 20px;
+    width: 650px;
+    padding: 40px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    color: white;
+    height: 40vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("img/sm-banner.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.sm-banner .sm-banner2 {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("img/hero.png");
+    background-size: cover;
+    width: 650px;
+    background-position: center;
+}
+
+.sm-banner h4 {
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.sm-banner h2 {
+    color: white;
+    font-size: 28px;
+    font-weight: 300;
+}
+
+.sm-banner span {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    padding-bottom: 15px;
+}
+
+.sm-banner button:hover,
+.sm-banner button:focus {
+    background: #9cffdb;
+    outline: 2px solid white;
+}
+
+.banner3 {
+    display: flex;
+    justify-content: center;
+}
+
+.banner3 .banner-box {
+    margin: 20px;
+    padding: 40px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    color: white;
+    height: 40vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://source.unsplash.com/900x600/?banner 1");
+    background-size: cover;
+    background-position: center;
+}
+
+.banner3 .sm-banner4 {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://source.unsplash.com/900x600/?banner 2");
+    background-size: cover;
+    background-position: center;
+}
+
+.banner3 .sm-banner5 {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://source.unsplash.com/900x600/?banner 3");
+    background-size: cover;
+    background-position: center;
+}
+
+.banner3 h2 {
+    color: white;
+    font-weight: 900;
+    font-size: 22px;
+}
+
+.banner3 h4 {
+    color: red;
+    font-weight: 800;
+    font-size: 15px;
+}
+
+/* newsletter */
+.newsletter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgb(0, 7, 50);
+    color: white;
+    padding: 40px 80px;
+    margin: 40px 0;
+}
+
+.newsletter h4 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.newsletter p {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.newsletter span {
+    color: rgb(255, 177, 9);
+}
+
+.newsletter input {
+    height: 3rem;
+    padding: 5px;
+    font-size: 14px;
+    width: 100%;
+    border: 1px solid transparent;
+    outline: none;
+    border-radius: 2px 0 0 2px;
+}
+
+.newsletter button {
+    background-color: #9cffdb;
+    border-radius: 0;
+    text-wrap: nowrap;
+}
+
+.newsletter .form {
+    display: flex;
+    width: 40%;
+}
+
+/* Footer */
+.footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px 20px 0;
+    justify-content: center;
+}
+
+.footer .col {
+    padding: 0 40px 20px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer .col .logo {
+    width: 50px;
+}
+
+.footer .logo-contact {
+    display: flex;
+    align-items: center;
+}
+
+.footer .col a {
+    line-height: 2;
+    text-decoration: none;
+}
+
+.footer .follow {
+    margin-top: 20px;
+}
+
+.footer .follow i {
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.footer .col .row {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.footer .col .row a {
+    border: 1px solid green;
+    margin-right: 10px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.footer .col .row a {
+    font-size: 20px;
+}
+
+.footer .col .row span {
+    font-weight: 700;
+}
+
+.footer .copyright {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0 0 0;
+    padding: 0;
+    background-color: #9cffdb;
+    width: 100%;
+    height: 100px;
+    font-size: 30px;
+}
+
+.footer .copyright p {
+    margin-right: 50px;
+}
+
+/* Shop Page*/
+.page-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://source.unsplash.com/1536x864/?page-header");
+    background-size: cover;
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    text-align: center;
+}
+
+/* All Product */
+.pagination {
+    text-align: center;
+}
+
+.pagination a {
+    text-decoration: none;
+    background-color: #9cffdb;
+    padding: 15px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.prodetails {
+    padding: 40px 80px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.prodetails .pro-image {
+    width: 40%;
+    margin-right: 50px;
+    padding: 2px;
+}
+
+
+.prodetails .pro-image img {
+    width: 100%;
+}
+
+.prodetails .pro-image img:not(#MainImg) {
+    border: 1px solid black;
+}
+
+.prodetails .small-image-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.prodetails .small-image-col {
+    flex-basis: 24%;
+    cursor: pointer;
+}
+
+.prodetails .small-image-col img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.prodetails .single-pro-details {
+    width: 50%;
+    padding-top: 10px;
+}
+
+.prodetails .single-pro-details h4 {
+    padding: 10px 0 10px 0;
+}
+
+.prodetails .single-pro-details h2 {
+    padding-bottom: 10px;
+}
+
+.prodetails .single-pro-details select,
+.prodetails .single-pro-details input {
+    border-radius: 5px;
+    text-align: center;
+}
+
+.prodetails .single-pro-details select {
+    display: block;
+}
+
+.prodetails .single-pro-details input {
+    outline: none;
+    padding: 10px 0 10px 10px;
+}
+
+.prodetails .single-pro-details button {
+    background: #9cffdb;
+    margin-top: 20px;
+    padding: 10px 20px;
+}
+
+.prodetails .single-pro-details span {
+    line-height: 1.5;
+}
+
+/* Blog Page*/
+.blog-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://source.unsplash.com/1536x864/?blog-header");
+}
+
+.blog {
+    padding: 50px 100px 50px 100px;
+}
+
+.blog h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.blog .blog-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.blog .blog-box .blog-img {
+    width: 40%;
+    margin-right: 40px;
+}
+
+.blog .blog-box .blog-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.blog .blog-box .blog-details {
+    width: 60%;
+    margin-right: 20px;
+}
+
+.blog .blog-details a {
+    text-decoration: none;
+    font-size: 11px;
+    color: #000;
+    font-weight: 700;
+    position: relative;
+    transition: all 0.3 ease;
+}
+
+.blog .blog-details a::after {
+    content: "";
+    width: 50px;
+    height: 1px;
+    background-color: #000;
+    position: absolute;
+    top: 8px;
+    right: -55px;
+}
+
+.blog .blog-details a:hover,
+.blog .blog-details a:focus {
+    color: #1496d7;
+}
+
+.blog .blog-details a:hover::after {
+    background-color: #1496d7;
+}
+
+.blog .blog-box h2 {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    font-size: 70px;
+    font-weight: 700;
+    color: grey;
+}
+
+/* About*/
+.about-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://source.unsplash.com/1536x864/?about-header");
+}
+
+.about-section {
+    display: flex;
+    align-items: center;
+    padding: 40px 80px;
+    text-indent: 20px;
+}
+
+.about-section img {
+    width: 40%;
+    height: auto;
+}
+
+.about-section .about-text {
+    padding-left: 40px;
+}
+
+/* about app */
+.about-app {
+    text-align: center;
+    color: white;
+    padding: 40px 80px;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://source.unsplash.com/selective-focus-photography-of-black-gemstones-ktVazL5c7FM");
+}
+
+.about-app h1 {
+    margin-bottom: 10px;
+}
+
+.about-app video {
+    border: 1px solid rgb(57, 57, 57);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.229);
+}
+
+.about-app a {
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s;
+}
+
+.about-app a:hover,
+.about-app a:focus {
+    color: #1496d7;
+}
+
+/* Contact page*/
+.contact-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://source.unsplash.com/1536x864/?contact-header");
+}
+
+.contact-details {
+    padding: 40px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-details .details h2 {
+    padding: 15px 0;
+}
+
+.contact-details .details h3 {
+    padding-bottom: 15px;
+}
+
+.contact-details .details li {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.contact-details .details li i {
+    font-size: 25px;
+    padding-right: 15px;
+}
+
+.contact-details .details li p {
+    color: gray;
+}
+
+/* form */
+.form-details {
+    padding: 30px 80px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid grey;
+}
+
+.form-details form {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 20px;
+}
+
+.form-details form input,
+.form-details form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid rgb(176, 176, 176);
+}
+
+.form-details form button {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    color: black;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+}
+
+.form-details form button:hover,
+.form-details form button:focus {
+    background: #9cffdb;
+    outline: 2px solid rgb(0, 0, 0);
+}
+
+.people {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0 0 20px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px;
+}
+
+.people img {
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.people div {
+    max-width: 280px;
+}
+
+.people .info p {
+    color: grey;
+    line-height: 1.5;
+    width: 100%;
+    font-size: 1em;
+}
+
+/* Cart*/
+.cart-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("https://source.unsplash.com/1536x864/?card-header");
+}
+
+.cart_list {
+    margin: 40px 40px;
+    overflow-x: auto;
+}
+
+th {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 18px;
+}
+
+.cart_list table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.cart_list table thead {
+    border: 1px solid lightgrey;
+    border-left: none;
+    border-right: none;
+}
+
+.cart_list table thead th:nth-child(1) {
+    width: 100px;
+}
+
+.cart_list table thead th:nth-child(2) {
+    width: 150px;
+}
+
+.cart_list table thead th:nth-child(3) {
+    width: 250px;
+}
+
+.cart_list table thead th:nth-child(4),
+.cart_list table thead th:nth-child(5),
+.cart_list table thead th:nth-child(6) {
+    width: 150px;
+}
+
+.cart_list table tbody tr td {
+    padding: 15px;
+    word-wrap: break-word;
+}
+
+.cart_list tbody td img {
+    width: 100%;
+}
+
+.cart-add {
+    padding: 40px 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.coupon {
+    width: 50%;
+    margin-bottom: 30px;
+}
+
+.coupon h3 {
+    padding-bottom: 15px;
+}
+
+.coupon input {
+    padding: 10px 20px;
+    width: 60%;
+    margin-right: 10px;
+    border: 1px solid lightgrey;
+}
+
+.coupon button,
+.subtotal button {
+    background-color: #9cffdb;
+    padding: 10px 20px;
+}
+
+.subtotal {
+    width: 50%;
+    margin-bottom: 30px;
+    border: 1px solid lightgrey;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.subtotal h3 {
+    text-align: start;
+    margin-bottom: 10px;
+}
+
+.subtotal table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.subtotal table th {
+    text-transform: capitalize;
+}
+
+.subtotal table th,
+.subtotal table td {
+    width: 50%;
+    border: 1px solid lightgrey;
+}
+
+.subtotal button {
+    margin-top: 25px;
+    align-self: flex-end;
+}
+
+@media (max-width:1200px) {
+    .feature {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .feature .fe-box {
+        margin: 10px;
+    }
+
+    .product .container {
+        justify-content: center;
+    }
+
+
+    .footer .container {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .banner3 .banner-box {
+        width: 500px;
+    }
+
+    .footer .col .row a {
+        display: block;
+        margin-top: 10px;
+    }
+
+    .about-section {
+        flex-direction: column;
+    }
+
+    .about-section img {
+        width: 60%;
+    }
+
+    .about-section .about-text {
+        margin-top: 10px;
+    }
+
+    .form-details {
+        flex-direction: column;
+    }
+
+    .form-details form {
+        width: 100%;
+    }
+}
+
+@media (min-width:1200px) {
+    .footer .container {
+        flex-wrap: nowrap;
+    }
+
+    .footer .container .col .row a {
+        margin-top: 10px;
+        display: block;
+    }
+}
+
+@media (max-width:768px) {
+    #navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        height: 100vh;
+        width: 300px;
+        background-color: #e3e6f3;
+        box-shadow: 0 1px 5px black;
+        padding: 80px 0 0 10px;
+        transition: all 0.5s ease;
+    }
+
+    #navbar.active {
+        right: 0;
+    }
+
+    #navbar li {
+        margin-bottom: 25px;
+    }
+
+    .header .mobile {
+        display: flex;
+        align-items: center;
+    }
+
+
+    .mobile i {
+        font-size: 24px;
+        margin: 20px;
+    }
+
+    .mobile i:hover {
+        cursor: pointer;
+    }
+
+    #close {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 20px;
+        color: black;
+    }
+
+    #navbar li a .bag {
+        display: none;
+    }
+
+    .hero *:not(button) {
+        width: 100%;
+    }
+
+    .hero {
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("img/hero.png") center no-repeat;
+        background-size: cover;
+    }
+
+    .hero {
+        background-position: center right 0%;
+    }
+
+    .sm-banner .banner-box {
+        width: 100%;
+    }
+
+    .banner3 {
+        flex-wrap: wrap;
+    }
+
+    .newsletter .form {
+        width: 100%;
+        display: block;
+    }
+
+    .newsletter .form button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .prodetails {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .prodetails .pro-image {
+        width: 100%;
+        margin: 0;
+    }
+
+    .prodetails .single-pro-details {
+        width: 100%;
+    }
+
+    .blog {
+        padding: 50px 20px 20px 20px;
+    }
+
+    .blog .blog-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .blog .blog-box .blog-img {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .blog .blog-box .blog-details {
+        width: 100%;
+    }
+
+    .about-section img {
+        width: 100%;
+    }
+
+    .about-app {
+        background-image: url("https://source.unsplash.com/selective-focus-photography-of-black-gemstones-ktVazL5c7FM");
+    }
+
+    .about-app video {
+        width: 100%;
+    }
+
+    .contact-details {
+        padding: 20px 10px;
+        flex-direction: column;
+    }
+
+    section {
+        width: auto;
+    }
+
+    .form-details form {
+        width: 100%;
+    }
+
+    .contact-details iframe {
+        width: 100%;
+    }
+
+    .cart-add {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 30px;
+    }
+
+    .coupon {
+        width: 100%;
+    }
+
+    .subtotal {
+        width: 100%;
+    }
+}
+
+@media (max-width:576px) {
+    .hero {
+        background-position: center right 20%;
+        padding: 200px 20px 0;
+    }
+
+    .hero h1 {
+        font-size: 1.1rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .page-header {
+        p {
+            font-size: 1rem;
+        }
+    }
+
+    .footer .col {
+        padding: 0 40px 20px 0;
+    }
+
+    .about-section {
+        padding: 10px 20px;
+    }
+
+    .about-section .about-text {
+        padding: 0;
+    }
+
+    .about-app h1,
+    .about-app h4 {
+        font-size: inherit;
+    }
+
+    .feature,
+    .product {
+        padding: 20px 0;
+    }
+
+    .form-details {
+        padding: 10px 20px;
+    }
+
+    .glowing-btn {
+        font-size: 1.1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}

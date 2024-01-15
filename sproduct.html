@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Tyng">
+    <meta name="description" content="This is a website about Idevice Heaven T">
+    <meta name="language" content="English">
+    <meta name="date" content="2024-1-10">
+
+    <!-- icons fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- website icon -->
+    <link rel="icon" href="img/icon.png" type="image/x-icon">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <title>Idevice Heaven T</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <section class="header">
+        <a href="index.html"><img src="img/logo.png" alt="logo" class="logo" width="50"></a>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html"><i class="fa-solid fa-bag-shopping bag"></i></a></li>
+                <i class="fa-solid fa-x" id="close"></i>
+            </ul>
+        </div>
+        <div class="mobile">
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping" style="color: black;"></i></a>
+            <i class="fa-solid fa-bars" id="bar"></i>
+        </div>
+    </section>
+
+    <!-- Product Details -->
+    <section class="prodetails">
+        <div class="pro-image">
+            <img src="https://source.unsplash.com/white-smartphone-on-brown-wooden-table-J82GxqnwKSs" alt="product"
+                id="MainImg">
+            <div class="small-image-group">
+                <div class="small-image-col">
+                    <img src="https://source.unsplash.com/white-smartphone-on-brown-wooden-table-J82GxqnwKSs"
+                        class="small-img" alt="MainImg">
+                </div>
+                <div class="small-image-col">
+                    <img src="https://source.unsplash.com/silver-smartphone-showing-gray-brick-tower-msNCux-u3lo"
+                        class="small-img" alt="small-image2">
+                </div>
+                <div class="small-image-col">
+                    <img src="https://source.unsplash.com/black-iphone-5-on-orange-surface-4vrZpOo7fTc"
+                        class="small-img" alt="small-image3">
+                </div>
+                <div class="small-image-col">
+                    <img src="https://source.unsplash.com/white-iphone-5-c-on-brown-wooden-table-sFNLIUsQBFA"
+                        class="small-img" alt="small-image4">
+                </div>
+            </div>
+        </div>
+        <div class="single-pro-details">
+            <h6>Home/ SmartPhones</h6>
+            <h4 id="brandModel"></h4>
+            <h2 id="productPrice"></h2>
+            <select id="storageSelect">
+                <option value="64GB">64GB Storage</option>
+                <option value="128GB">128GB Storage</option>
+                <option value="256GB">256GB Storage</option>
+                <option value="512GB">512GB Storage</option>
+            </select>
+            <input type="number" id="quantityInput" value="1" min="1" max="10">
+            <a href="cart.html" id="addToCartLink"><button class="normal">Add to Cart</button></a>
+            <h4>Product Details</h4>
+            <span>Explore the latest XYZ Tech Model Alpha Smartphone with cutting-edge features. This sleek and
+                powerful device is designed to enhance your mobile experience. Enjoy a stunning display,
+                high-performance camera, and a seamless user interface.</span>
+        </div>
+    </section>
+    <hr>
+
+    <!-- New Arrivals -->
+    <section class="product">
+        <h2>New Arrivals</h2>
+        <p>Discover the latest additions to our collection.</p>
+        <div class="container">
+            <div class="pro new">
+                <img src="https://source.unsplash.com/black-android-smartphone-turned-off-_kLy1TGTIgQ" alt="product">
+                <div class="des">
+                    <span>TechMax</span>
+                    <h5>Quantum X2</h5>
+                    <div>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4>$799.99</h4>
+                </div>
+                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
+            </div>
+            <div class="pro new">
+                <img src="https://source.unsplash.com/1200x900/?phone 8" alt="product2">
+                <div class="des">
+                    <span>Mobile Innovators</span>
+                    <h5>Nova Pro 2022</h5>
+                    <div>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4>$899.99</h4>
+                </div>
+                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
+            </div>
+            <div class="pro new">
+                <img src="https://source.unsplash.com/1200x900/?phone 9" alt="product2">
+                <div class="des">
+                    <span>SmartTech</span>
+                    <h5>Galaxy Elite Pro</h5>
+                    <div>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4>$999.99</h4>
+                </div>
+                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
+            </div>
+            <div class="pro new">
+                <img src="https://source.unsplash.com/1200x900/?phone 10" alt="product3">
+                <div class="des">
+                    <span>Future Gadgets</span>
+                    <h5>Eclipse Z2</h5>
+                    <div>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <h4>$749.99</h4>
+                </div>
+                <a href="#"><i class="fa-solid fa-cart-shopping cart"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="newstext">
+            <h4>Subscribe to Our Newsletter</h4>
+            <p>Stay in the loop with our latest products and <span>exclusive offers.</span></p>
+        </div>
+        <div class="form">
+            <input type="email" placeholder="Your email address" required>
+            <button class="normal">Subscribe</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="col">
+                <div class="logo-contact">
+                    <img src="img/logo.png" alt="logo" class="logo">
+                    <h4>Contact</h4>
+                </div>
+                <p><strong>Address:</strong>xx xxxxxx xxxxxx</p>
+                <p><strong>Phone:</strong>+0123456789</p>
+                <p><strong>Hours:</strong> 9:00 - 22:00 Mon - Sat</p>
+                <div class="follow">
+                    <h4>Follow Us</h4>
+                    <div class="icon">
+                        <i class="fa-brands fa-facebook" style="color: #4267B2;"></i>
+                        <i class="fa-brands fa-instagram" style="color: #ffa600;"></i>
+                        <i class="fa-brands fa-twitter" style="color: #1DA1F2;"></i>
+                        <i class="fa-brands fa-youtube" style="color: #FF0000;"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h4>About</h4>
+                <a href="#">About Us</a>
+                <a href="#">Delivery Information</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="col">
+                <h4>My Account</h4>
+                <a href="#">Sign In</a>
+                <a href="#">View Cart</a>
+                <a href="#">My Wishlist</a>
+                <a href="#">Track My Order</a>
+                <a href="#">Help</a>
+            </div>
+            <div class="col">
+                <h4>Install App</h4>
+                <p href="#">From App Store or Google Play</p>
+                <div class="row">
+                    <a href="#"><i class="fa-brands fa-apple" style="color: black;"></i> Download on the <span>App
+                            Store</span></a>
+                    <a href="#"><i class="fa-brands fa-google-play play-store" style="color: #01875f ;"></i> Google
+                        Play</a>
+                </div>
+                <p>Secured Payment Gateways</p>
+                <img src="img/card_logo.png" alt="card logo" width="250">
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024, Idevice Heaven T</p>
+        </div>
+    </footer>
+
+    <!-- Javascript -->
+    <script src="script.js"></script>
+    <script>
+        function displayImg() {
+            var MainImg = document.getElementById("MainImg");
+            var smallImg = document.getElementsByClassName('small-img');
+
+            // 获取 storageSelectElement 在函数内
+            var storageSelectElement = document.getElementById('storageSelect');
+
+            function getQueryParam(name) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(name);
+            }
+
+            var img = getQueryParam('img');
+            var brand = getQueryParam('brand');
+            var model = getQueryParam('model');
+            var price = getQueryParam('price');
+
+            MainImg.src = img;
+            document.getElementById('brandModel').textContent = brand + ' - ' + model;
+            document.getElementById('productPrice').textContent = price;
+
+            for (var i = 0; i < smallImg.length; i++) {
+                smallImg[i].onclick = function () {
+                    MainImg.src = this.src;
+                    MainImg.style.width = MainImg.offsetWidth + "px";
+                    MainImg.style.height = MainImg.offsetHeight + "px";
+                    MainImg.style.objectFit = "contain";
+                }
+            }
+
+            var quantity = document.getElementById('quantityInput').value;
+            var brandModel = brand + ' - ' + model;
+            var storageSelect = storageSelectElement.value;
+
+            var cartUrl = 'cart.html?img=' + img + '&brandModel=' + brandModel + '&quantity=' + quantity + '&price=' + price + '&storageSelect=' + storageSelect;
+
+            document.getElementById('addToCartLink').href = cartUrl;
+        };
+
+        // 添加事件监听器
+        window.addEventListener('DOMContentLoaded', function () {
+            displayImg();
+
+            var storageSelectElement = document.getElementById('storageSelect');
+            storageSelectElement.addEventListener('change', displayImg);
+        });
+    </script>
+
+
+</body>
+
+</html>
